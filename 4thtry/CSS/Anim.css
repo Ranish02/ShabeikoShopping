@@ -1,0 +1,87 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: lighter;
+}
+
+.heart-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.content {
+    border: 2px solid #eae2e1;
+    padding: 13px 16px;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+    .content.heart-active {
+        border-color: #F9b9c4;
+        background: #fbd0d8;
+    }
+
+.heart {
+    height: 90px;
+    width: 90px;
+    background: url("/WebsiteImages/img.png")no-repeat;
+    background-position: left;
+    background-size: 2900%;
+    position: absolute;
+    top: 50%;
+    left: 21%;
+    transform: translate(-50%,-50%);
+}
+
+.like {
+    font-size: 21px;
+    margin-left: 30px;
+    color: grey;
+    font-family: 'Rubik', sans-serif;
+}
+
+.numb:before {
+    content: '12';
+    font-size: 21px;
+    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
+    color: #9C9496;
+    margin-left: 7px;
+}
+
+
+@keyframes animate {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+.like {
+    margin-left: 30px;
+    font: 21px;
+    font-family: 'Rubik', sans-serif;
+    color: grey;
+}
+
+.numb.heart-active:before {
+    content: '13';
+    color: #000;
+}
+
+.like.heart-active {
+    color: #000;
+}
+
+.heart.heart-active {
+    animation: animate .8s steps(28) 1;
+    background-position: right;
+}
+

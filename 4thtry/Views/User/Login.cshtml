@@ -1,0 +1,35 @@
+﻿@model _4thtry.Context.User
+
+@{
+    ViewBag.Title = "Login";
+}
+<head>
+    <link href="~/CSS/Login1.css" rel="stylesheet" />
+</head>
+
+<div class="center">
+    <h1>Login</h1>
+    <span style="text-align:center;color:red;padding-left:105px;">@ViewBag.Message</span>
+    @*<form method="post">*@
+<form action="Login" enctype="multipart/form-data" method="post" novalidate="novalidate">
+    <div class="txt_field">
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "text-input", @type = "email" } })
+        <span></span>
+        <label>Email</label>
+    </div>
+    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", @type = "email" })
+    <div class="txt_field">
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-input", @type = "password" } })
+        <span></span>
+        <label>Password</label>
+    </div>
+    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    <!--<div class="pass">Forgot Password?</div>-->
+    @*  <input type="submit" value="Login" />*@
+    <input type="submit" value="Login">
+    <div class="signup_link">
+        Not a member? <a href="@Url.Action("Signup","User",FormMethod.Get)">Signup</a>
+        @*<a href="#">Signup</a>*@
+    </div>
+</form>
+</div>

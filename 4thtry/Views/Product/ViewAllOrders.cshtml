@@ -1,0 +1,117 @@
+﻿@model IEnumerable<_4thtry.Context.order>
+
+@{
+    ViewBag.Title = "ViewAllOrders";
+}
+
+<h2>ViewAllOrders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.order_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_date)
+        </th>
+        <th>
+            Product ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_unitprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_bill)
+        </th>
+        <th>
+            User ID
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bill.invoice_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryStaff.emp_name)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.product_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_unitprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_bill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bill.invoice_fk_user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bill.User.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.bill.invoice_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deliveryStaff.emp_name)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditOrders", new { id = item.order_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.order_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.order_id })
+            </td>
+        </tr>
+    }
+
+    
+        
+
+
+</table>

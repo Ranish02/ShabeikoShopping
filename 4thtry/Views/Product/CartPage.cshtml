@@ -1,0 +1,97 @@
+﻿@model _4thtry.Context.product
+@{
+    ViewBag.Title = "CartPage";
+}
+
+<h2>CartPage</h2>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@if (TempData["cart"] != null)
+{
+    <table>
+        <thead>
+        
+        <th>Product ID</th>
+        <th>Product</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Bill</th>
+        </thead>
+        <tbody>
+            @foreach (var item in TempData["cart"] as List<_4thtry.Context.Cart>)
+            {
+            <tr>
+                <div class="col-md-2">
+                <td><span>@item.pro_id_fk</span></td>
+                <td><img src="@Url.Content(item.product.product_img)" alt="No img found" class="img-thumbnail"></td>
+                <td><span> @item.product.product_name</span></td>
+                <td><span> @item.product.product_price</span></td>
+                <td><span>@item.qty</span></td>
+
+                <td>@item.total</td>
+                <td>
+                    <a class="btn btn-sm btn-danger" href="@Url.Action("remove",new { id = @item.product.product_id})">Remove</a>
+
+
+                </td>
+                </div>
+            </tr>
+                @*<div class="btn btn-light">@Html.ActionLink("Cart", "addtocart", new { id = @item.product_id })</div>*@
+            }
+        </tbody>
+        <tfoot>
+        <td colspan="4"></td>
+        <td>Total: Nrs:@TempData["total"]</td>
+        </tfoot>
+    </table>
+
+}
+else
+{
+    <h1>The cart is empty</h1>
+    @Html.ActionLink("Go back to shopping", "ShoppingPage", "Product");
+}
+@if (TempData["cart"] != null)
+{
+    using (Html.BeginForm())
+    {
+        <input type="submit" value="Shop now" class="btn btn-danger" />
+    }
+}
+
+
+<!-- bootstrap wala table <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col" colspan="2" style="text-align:center">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>-->
+@*  @foreach (var item in TempData["cart"] as List<_4thtry.Models.Cart>)*@
+<!--{
+            <tr>
+                <th scope="row"><img src="@Url.Content("~/images/tomato.jpg")" alt="No img found" class="img-thumbnail"></th>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>mdo</td>
+            </tr>
+
+        }
+
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>twitter</td>
+        </tr>
+    </tbody>
+</table>-->

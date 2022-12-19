@@ -1,0 +1,101 @@
+﻿@model _4thtry.Context.order
+
+@{
+    ViewBag.Title = "EditOrders";
+}
+
+<h2>EditOrders</h2>
+
+@using (Html.BeginForm())
+{
+    
+    
+    <div class="form-horizontal">
+        <h4>order</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.order_id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_fkpro, "order_fkpro", htmlAttributes: new { @class = "control-label col-md-2" }) : 
+        @Html.DisplayFor(model => model.order_fkpro)
+        <div class="col-md-10">
+
+            @*@Html.EditorFor(model => model.order_fkpro, new { htmlAttributes = new { @class = "form-control" } })*@
+            @* @Html.DropDownList("order_fkpro", null, htmlAttributes: new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.order_fkpro, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_fk_invoice, "order_fk_invoice", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.order_fk_invoice)
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.order_fk_invoice, new { htmlAttributes = new { @class = "form-control" } })*@
+            @*@Html.DropDownList("order_fk_invoice", null, htmlAttributes: new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.order_fk_invoice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_date, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.order_date)
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.order_date, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.order_date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_qty, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.order_qty)
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.order_qty, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.order_qty, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_bill, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.order_bill)
+
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.order_bill, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.order_bill, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_unitprice, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(model => model.order_unitprice)
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.order_unitprice, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.order_unitprice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.order_status, htmlAttributes: new { @class = "control-label col-md-2" })
+        Processing @Html.RadioButtonFor(model=> model.order_status,"Processing",new { @class = "text-danger" })
+        Processed @Html.RadioButtonFor(model => model.order_status, "Processed", new { @class = "text-danger" })
+        Dispatched @Html.RadioButtonFor(model => model.order_status, "Dispatched", new { @class = "text-danger" })
+        Delivered @Html.RadioButtonFor(model => model.order_status, "Delivered", new { @class = "text-danger" })
+
+        <div class="col-md-10">
+           @* @Html.EditorFor(model => model.order_status, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.order_status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

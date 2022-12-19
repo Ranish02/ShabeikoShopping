@@ -1,0 +1,144 @@
+﻿@model IEnumerable<_4thtry.Context.order>
+
+@{
+    ViewBag.Title = "ViewMyOrders";
+}
+
+<h2>ViewMyOrders</h2>
+
+<!--<table class="table">
+    <tr>
+        <th>
+            Date-->
+            @*@Html.DisplayNameFor(model => model.order_date)*@
+        <!--</th>
+        <th>
+           Quantity-->
+            @*@Html.DisplayNameFor(model => model.order_qty)*@
+        <!--</th>
+        <th>
+            Total-->
+            @*@Html.DisplayNameFor(model => model.order_bill)*@
+        <!--</th>
+        <th>
+            Unit Price-->
+            @*@Html.DisplayNameFor(model => model.order_unitprice)*@
+        <!--</th>
+        <th>
+            Bill number-->
+            @*@Html.DisplayNameFor(model => model.bill.invoice_id)*@
+        <!--</th>
+        <th>
+            Product Id-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Product Name-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Address-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Phone no.-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Order Status-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Assigned Delivery Person-->
+            @*@Html.DisplayNameFor(model => model.product.product_name)*@
+        <!--</th>
+        <th>
+            Actions
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_qty)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_bill)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_unitprice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.bill.invoice_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.product.product_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.product.product_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.phone_no)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.deliveryStaff.emp_name)
+    </td>
+    <td>
+        @if (item.order_status == "Processed" || item.order_status == "Processing")
+        {
+            @Html.ActionLink("Cancel", "cancelOrder", new { id = item.order_id })
+        }
+    </td>
+    
+</tr>
+}
+
+</table>-->
+
+
+<section id="Order Cards">
+    <div class="container">
+        <div class="title">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <img src="@Url.Content(item.product.product_img)" alt="No img found" class="card-img-top">
+                            @*<img src="Bg.jpg" class="card-img-top" alt="">*@
+                        <div class="card-body">
+                            <h5 class=""></h5>
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.product.product_name)</h5>
+                            <h5 class="card-text">Quantity: @Html.DisplayFor(modelItem => item.order_qty)</h5>
+                            <h5 class="card-text">Price per Unit: @Html.DisplayFor(modelItem => item.order_unitprice)</h5>
+                            <h5 class="card-text">Total: @Html.DisplayFor(modelItem => item.order_bill)</h5>
+                            <h5 class="card-text">OrderDate: @Html.DisplayFor(modelItem => item.order_date)</h5>
+                            <h5 class="card-text">Bill no: @Html.DisplayFor(modelItem => item.bill.invoice_id)</h5>
+                            <h5 class="card-text">Address: @Html.DisplayFor(modelItem => item.address)</h5>
+                            <h5 class="card-text">Phone no: @Html.DisplayFor(modelItem => item.phone_no)</h5>
+                            <h5 class="card-text">Status: @Html.DisplayFor(modelItem => item.order_status)</h5>
+
+                            @if (item.order_status == "Processed" || item.order_status == "Processing")
+                            {
+                                <a href="@Url.Action("cancelOrder","Product",new { id = item.order_id })">Cancel</a>
+
+                            }
+                        </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>

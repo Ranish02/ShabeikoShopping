@@ -1,0 +1,52 @@
+﻿@model _4thtry.Context.User
+@{
+    ViewBag.Title = "Signup";
+}
+
+<head>
+    <link href="~/CSS/Login1.css" rel="stylesheet" />
+</head>
+<div class="center">
+    <h1>Signup</h1>
+    @if (ViewBag.Message != null)
+    {
+        <span class="text-danger">@ViewBag.Message</span>
+    }
+    @*<form method="post">*@
+<form action="Addusers" enctype="multipart/form-data" method="post" novalidate="novalidate">
+    @*@Html.HiddenFor(x => x.UserId)*@
+    <div class="txt_field">
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "text-input", @type = "text" } })
+
+        @* <input type="password" required>*@
+        <span></span>
+        <label>Name</label>
+    </div>
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    <div class="txt_field">
+        @* <input type="text" required>*@
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "text-input", @type="email" } })
+
+        <span></span>
+        <label>Email</label>
+    </div>
+    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+<div class="txt_field">
+    @*<input type="password" id="pass" name="password" minlength="8" required>*@
+    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-input", @type = "password" } })
+
+    @* <input type="password" required>*@
+    <span></span>
+    <label>Password</label>
+</div>
+    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" }) 
+    <!--<div class="pass">Forgot Password?</div>-->
+    @*  <input type="submit" value="Login" />*@
+    <input type="submit" value="Signup">
+    <div class="signup_link">
+        Already have an account? <a href="@Url.Action("Login","User")">Login</a>
+        @*<a href="#">Signup</a>*@
+    </div>
+</form>
+</div>
+

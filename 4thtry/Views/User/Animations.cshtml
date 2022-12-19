@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Animations";
+}
+
+<head>
+<link rel="stylesheet" href="~/CSS/Anim.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<title>Document</title>
+</head>
+
+
+<a href="@Url.Action("Login","User")" class="heart-btn" delay>
+    <div class="content">
+    <span class="heart"></span>
+    <span class="like">Like</span>
+    <span class="numb"></span>
+    <span class="numb"></span>
+</div>
+</a>
+@*<div class="heart-btn">
+    <div class="content">
+        <span class="heart"></span>
+        <span class="like">Like</span>
+        <span class="numb"></span>
+        <span class="numb"></span>
+    </div>*@
+<script>
+    $(document).ready(function () {
+        $(".content").click(function () {
+            $(".content").toggleClass("heart-active")
+            $(".like").toggleClass("heart-active")
+            $(".numb").toggleClass("heart-active")
+            $(".heart").toggleClass("heart-active")
+
+        });
+    });
+</script>

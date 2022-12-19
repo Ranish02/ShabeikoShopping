@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87daf34e7b4342c1acaa7256e9d04eab" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="db_testModel.bill" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.Cart" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.order" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.product" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.reply" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.review" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.User" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="db_testModel.FK__bill__invoice_fk__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__orders__order_fk__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__Cart__pro_id_fk__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__Cart__user_id_fk__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__orders__order_fk__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__review__product___160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__replies__fk_revi__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__replies__user_id__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="db_testModel.FK__review__user_id__17036CC0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_testModel.deliveryStaff" Width="1.5" PointX="8.625" PointY="5.25" />
+        <AssociationConnector Association="db_testModel.FK__orders__assigned__3C34F16F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

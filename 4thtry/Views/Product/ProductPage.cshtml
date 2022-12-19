@@ -1,0 +1,48 @@
+﻿@model _4thtry.Context.product
+
+@{
+    ViewBag.Title = "ProductPage";
+}
+
+<h2>ProductPage</h2>
+@using (Html.BeginForm("addtocart", "Product"))
+{
+    <h2>Forms start</h2>
+    <input type='hidden' value="@Model.product_id" name="id" />
+    //@Html.HiddenFor(Model => Model.product_id, new { id = Model.product_id })
+    <img src="@Url.Content(Model.product_img)" alt="Not found" width="100px">
+    <img src="@Url.Content(Model.product_img)" alt="Not found" width="100px">
+    @*<img src="@Url.Content(Model.pro_image)" alt="..." class="img-thumbnail">*@
+    @*<img src="@Url.Content(Model.pro_image)" class="img-fluid" alt="Responsive image">*@
+    <h3> Product Name: @Model.product_name</h3>
+    <h3> Product Price: @Model.product_price</h3>
+    <h3> Product Description: @Model.product_des</h3>
+    <input type="number" min="0" max="15" id="qty" name="qty" />
+    <input type="submit" value="Submit" />
+    @*<input type="button" value="ProductPage" onclick="location.href='@Url.Action("ProductPage", "Product")'" />*@
+    @*<a class="btn btn-sm btn-danger" href="@Url.Action("ProductPage",new { id = Model.product_id})">Add to cart</a>*@
+}
+
+<h2>End</h2>
+<div>
+    @using (Html.BeginForm("AddReview", "Product"))
+    {
+        <h3>Ask questions here </h3>
+        <input type='hidden' value="@Model.product_id" name="productID" />
+        <textarea id="review" name="msg" placeholder="Ask Questions here"></textarea> <input type="submit" value="Submit" />
+    }
+</div>
+<div>
+    @foreach (var item in TempData["listofreview"] as List<_4thtry.Context.review>)
+    {
+        <span>@item.review_msg</span>
+        <span>by @item.User.Name on @item.Postdate </span> <br />
+        
+    }
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

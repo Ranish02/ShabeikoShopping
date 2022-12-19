@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNet.Identity
+@if (User.Identity.IsAuthenticated)
+{
+    <a>Hi, @User.Identity.Name</a>
+    <p>@Html.ActionLink("Logout", "Logout", "Register")</p>
+}
+else
+{
+    <p>@Html.ActionLink("Login", "Login", "User")</p>
+    <p>@Html.ActionLink("Sign Up", "Addusers", "User")</p>
+}
